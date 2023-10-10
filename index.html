@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" type="text/css" href="style.css">
+<header class="headline">
+    Welcome to the club, Buddy!
+</header>
+
+<body>
+    <div style="display: flex; flex-direction: column; justify-content: space-around; flex-wrap: wrap;">
+        <div class="mainContent">
+            <form style="padding: 10px">
+                <label>Введите логин :</label>
+                <input type="text" id="login" placeholder="example@gmail.com">
+            </form>
+            <form style="padding: 10px">
+                <label>Введите пароль :</label>
+                <input type="password" id="password" placeholder="********">
+            </form>
+            <input style="margin: 15px;" type="button" onclick="getValue()" value="Отправить">
+        </div>
+        <div style="border: solid 2px rgb(214, 175, 0); padding: 40px; color: white; background-color: black;">
+            <p id="message"></p>
+            </p>
+            <p id="message2"/> 
+        </div>
+    </div>
+    <script>
+        const validate = (pass, login) => {
+
+
+            if (pass && typeof (pass) !== "string" &&
+                login && typeof (login) !== "string") {
+                return false
+            } return true
+        }
+        const getValue = () => {
+            let login = document.getElementById("login").value;
+            let pass = document.getElementById("password").value;
+            let isValid = validate(pass, login)
+            
+            document.getElementById("message").innerText = `Login : ${login} 
+       Password : ${pass}`;
+       document.getElementById("message2").innerText = isValid ? `Valid` : `Invalid`
+        }
+
+    </script>
+</body>
+
+</html>
